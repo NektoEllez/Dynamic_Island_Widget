@@ -6,64 +6,90 @@
 //
 
 import Foundation
+import WidgetTestCommonModels
 
-// MARK: - WidgetServiceProtocol
+// MARK: - WidgetServiceInput
 
-protocol WidgetServiceProtocol: AnyObject {
-    func updateChoosedState(_ state: String)
-    func changeState(_ state: Bool)
+protocol WidgetServiceInput: AnyObject {
+    func updateChoosedState(_ model: WidgetStateModel)
+    func setIsDynamicIslandEnabled(_ state: Bool)
     func resetActivities()
-    func handleDeepLink(_ url: String)
+    func handleDeepLink(_ url: String?)
 }
 
-// MARK: - WidgetServiceDelegate
+// MARK: - WidgetServiceOutput
 
-protocol WidgetServiceDelegate: AnyObject {
+protocol WidgetServiceOutput: AnyObject {
     func timerExpired()
 }
 
-// MARK: - WidgetServiceProtocol
+// MARK: - WidgetService
 
 class WidgetService {
 
     // MARK: - Properties
 
-    static let shared = WidgetService()
-    weak var delegate: WidgetServiceDelegate?
+    weak var output: WidgetServiceOutput?
+
+    // MARK: - Private Properties
+}
+
+// MARK: - WidgetServiceInput
+
+extension WidgetService: WidgetServiceInput {
+    func updateChoosedState(_ model: WidgetStateModel) {
+        WidgetServiceStorage.shared.updateChoosedState(model)
+    }
+
+    func setIsDynamicIslandEnabled(_ state: Bool) {
+        WidgetServiceStorage.shared.setIsDynamicIslandEnabled(state)
+    }
+
+    func resetActivities() {
+        WidgetServiceStorage.shared.resetActivities()
+    }
+    
+    func handleDeepLink(_ url: String?) {
+        if url != nil {
+            output?.timerExpired()
+        }
+    }
+}
+
+
+// MARK: - WidgetServiceStorage
+
+fileprivate class WidgetServiceStorage {
+
+    // MARK: - Properties
+
+    static let shared = WidgetServiceStorage()
 
     // MARK: - Private Properties
 
     private let dynamicIslandManager = LiveActivityManager()
 
-    private var choosedState: String
+    private var choosedState: WidgetStateModel?
     private var dynamicIslandState = false
 
     // MARK: - Init
 
-    init() {
-        choosedState = "error"
-    }
-}
+    init() {}
 
-// MARK: - WidgetServiceProtocol
+    // MARK: - Methods
 
-extension WidgetService: WidgetServiceProtocol {
-    
-    func updateChoosedState(_ state: String) {
-        // поменять на enum,
-        // принимаюшее свойство принимает string
-        // updateChoosedState(_state: Enum)
+    func updateChoosedState(_ state: WidgetStateModel) {
         self.choosedState = state
-        dynamicIslandManager.updateActivity(choosedState)
+        dynamicIslandManager.updateActivity(state)
     }
 
-    func changeState(_ state: Bool) {
-        self.dynamicIslandState = state
+    func setIsDynamicIslandEnabled(_ isEnabled: Bool) {
+        self.dynamicIslandState = isEnabled
 
-        switch dynamicIslandState {
-        case true:
+        if isEnabled,
+           let choosedState = choosedState {
             dynamicIslandManager.startActivity(choosedState)
-        case false:
+        } else {
             dynamicIslandManager.stopActivity()
         }
     }
@@ -72,11 +98,5 @@ extension WidgetService: WidgetServiceProtocol {
         self.dynamicIslandState = false
         dynamicIslandManager.stopActivity()
     }
-    
-    func handleDeepLink(_ url: String) {
-        
-        if url == "Pidor" {
-            delegate?.timerExpired()
-        }
-    }
 }
+

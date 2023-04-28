@@ -15,7 +15,10 @@ import SwiftUI
 struct DynamicIslandAttributes: ActivityAttributes {
     public struct ContentState: Codable, Hashable {
         //You can append your changable parameters in ContentState. And call it "context.state.YOUR_PARAMETER_NAME"
-        var stateCode: String
+        var dynamicIslandState: String
+        var message: String
+        var hex: String
+        var time: Int?
     }
     
     //You can append not changable parametrs here. And call it "context.attributes.YOUR_PARAMETER_NAME"

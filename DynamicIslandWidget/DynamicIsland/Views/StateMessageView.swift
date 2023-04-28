@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import WidgetTestCommonModels
 
 struct StateMessageView: View {
-    @State var contextState: WidgetState
+    @State var contextState: WidgetStateModel
     
     var body: some View {
         VStack(alignment: .center) {

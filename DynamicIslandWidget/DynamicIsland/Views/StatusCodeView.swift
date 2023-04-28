@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import WidgetTestCommonModels
 
 struct StatusCodeView: View {
-    @State var contextState: WidgetState
+    @State var contextState: WidgetStateModel
+
     var body: some View {
         ZStack {
             // placeholder
@@ -20,7 +22,7 @@ struct StatusCodeView: View {
                         dash: [2]
                     )
                 )
-                .colorMultiply(contextState.messageColor) //state.messageColor) // условие цвета
+                .colorMultiply(Color(hex: contextState.hex))
                 .frame(width: 80, height: 80)
                 .overlay(
                     IconWidgetView(contextState: contextState, frameWidth: 50, frameHeight: 50)

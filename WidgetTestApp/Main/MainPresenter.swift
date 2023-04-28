@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import WidgetTestCommonModels
 
 class MainPresenter {
 
     // MARK: - Private Properties
 
     private weak var view: MainViewControllerInput?
-    private var widgetService: WidgetServiceProtocol?
+    private var widgetService: WidgetServiceInput?
 
     private var viewModel = MainViewModel()
 
@@ -20,7 +21,7 @@ class MainPresenter {
 
     required init(
         view: MainViewControllerInput,
-        widgetService: WidgetServiceProtocol
+        widgetService: WidgetServiceInput
     ) {
         self.view = view
         self.widgetService = widgetService
@@ -47,6 +48,10 @@ extension MainPresenter: MainPresenterInput {
 
     func didSelectColor(index: IndexPath) {
         let state = viewModel.states[index.row]
-        widgetService?.updateChoosedState(state)
+        widgetService?.updateChoosedState(WidgetStateModel(
+            state: WidgetState(rawValue: state) ?? .ok,
+            message: "Lorem ipsum",
+            hex: "#008000"
+        ))
     }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 import ActivityKit
+import WidgetTestCommonModels
+
 
 //Target Membership for this file: UIKit App + Widget Exension
 
@@ -16,10 +18,15 @@ class LiveActivityManager: ObservableObject {
 
     // MARK: - STARTING
 
-    func startActivity(_ state: String) {
+    func startActivity(_ model: WidgetStateModel) {
         Task {
             let attributes = DynamicIslandAttributes(name: "viZone")
-            let state = DynamicIslandAttributes.ContentState(stateCode: state)
+            let state = DynamicIslandAttributes.ContentState(
+                dynamicIslandState: model.state.rawValue,
+                message: model.message,
+                hex: model.hex,
+                time: model.time
+            )
             do {
                 let activity = try Activity<DynamicIslandAttributes>.request(
                     attributes: attributes,
@@ -35,9 +42,14 @@ class LiveActivityManager: ObservableObject {
 
     // MARK: - UPDATING
 
-    func updateActivity(_ state: String) {
+    func updateActivity(_ model: WidgetStateModel) {
         Task {
-            let updatedStatus = DynamicIslandAttributes.ContentState(stateCode: state)
+            let updatedStatus = DynamicIslandAttributes.ContentState(
+                dynamicIslandState: model.state.rawValue,
+                message: model.message,
+                hex: model.hex,
+                time: model.time
+            )
             for activtiy in Activity<DynamicIslandAttributes>.activities {
                 await activtiy.update(using: updatedStatus)
             }

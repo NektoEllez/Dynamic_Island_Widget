@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import WidgetTestCommonModels
 
 struct IconWidgetView: View {
     
-    @State var contextState: WidgetState
+    @State var contextState: WidgetStateModel
     @State var frameWidth: CGFloat
     @State var frameHeight: CGFloat
     
@@ -18,7 +19,7 @@ struct IconWidgetView: View {
             Image("viZoneIconWidget")
                 .resizable()
                 .frame(width: frameWidth, height: frameHeight)
-                .colorMultiply(contextState.messageColor)
+                .colorMultiply(Color(hex: contextState.hex))
         }
         .padding()
     }

@@ -12,7 +12,7 @@ import UIKit
 protocol MainPresenterInput: AnyObject {
     init(
         view: MainViewControllerInput,
-        widgetService: WidgetServiceProtocol
+        widgetService: WidgetServiceInput
     )
 
     func viewIsReady()

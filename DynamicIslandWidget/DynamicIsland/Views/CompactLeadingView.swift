@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import WidgetTestCommonModels
 
 struct CompactLeadingView: View {
-    @State var contextState: WidgetState
+    @State var contextState: WidgetStateModel
     
     var body: some View {
         ZStack {
@@ -16,7 +17,7 @@ struct CompactLeadingView: View {
                 Image("viZoneIconWidget")
                     .resizable()
                     .scaledToFit()
-                    .colorMultiply(contextState.messageColor)
+                    .colorMultiply(Color(hex: contextState.hex))
                 
                 Text(
                     Date().addingTimeInterval(0),

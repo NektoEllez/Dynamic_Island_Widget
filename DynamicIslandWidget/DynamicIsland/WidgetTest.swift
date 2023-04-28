@@ -8,6 +8,7 @@
 import ActivityKit
 import SwiftUI
 import WidgetKit
+import WidgetTestCommonModels
 
 //Target Membership for this file: Widget Exension
 
@@ -26,31 +27,41 @@ struct viZoneStatusWidget: Widget {
     
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: DynamicIslandAttributes.self) { context in
-            let state = WidgetState(rawValue: context.state.stateCode) ?? .waitForResponse
+            let model = WidgetStateModel(
+                state: WidgetState(rawValue: context.state.dynamicIslandState) ?? .waitForResponse,
+                message: context.state.message,
+                hex: context.state.hex,
+                time: context.state.time
+            )
             
             // Lock screen/banner UI goes here
-            loackScreenView(state: state)
+            loackScreenView(model: model)
             
         } dynamicIsland: { context in
-            let state = WidgetState(rawValue: context.state.stateCode) ?? .waitForResponse
-            
+            let model = WidgetStateModel(
+                state: WidgetState(rawValue: context.state.dynamicIslandState) ?? .waitForResponse,
+                message: context.state.message,
+                hex: context.state.hex,
+                time: context.state.time
+            )
+
             return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    dynamicIslandExpandedLeadingView(state: state)
+                    dynamicIslandExpandedLeadingView(model: model)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    dynamicIslandExpandedTrailingView(state: state)
+                    dynamicIslandExpandedTrailingView(model: model)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    dynamicIslandExpandedBottomView(state: state)
+                    dynamicIslandExpandedBottomView(model: model)
                 }
                 .contentMargins(.all, 40)
             } compactLeading: {
-                compactLeadingView(state: state)
+                compactLeadingView(model: model)
             } compactTrailing: {
-                compactTrailingView(state: state)
+                compactTrailingView(model: model)
             } minimal: {
-                minimalView(width: 25, height: 25, state: state)
+                minimalView(width: 25, height: 25, model: model)
             }
         }
     }
@@ -62,7 +73,7 @@ extension viZoneStatusWidget {
     
     // MARK: - Views
     // Lock Screen Widget
-    func loackScreenView(state: WidgetState) -> some View {
+    func loackScreenView(model: WidgetStateModel) -> some View {
         HStack(alignment: .center) {
             VStack(alignment: .center) {
                 Spacer(minLength: 20)
@@ -78,8 +89,8 @@ extension viZoneStatusWidget {
                 
                 HStack {
                     Image("viZoneIconWidget")
-                        .colorMultiply(state.messageColor)
-                    Text(state.message)
+                        .colorMultiply(Color(hex: model.hex))
+                    Text(model.message)
                         .font(Font.system(.body, design: .monospaced))
                         .minimumScaleFactor(0.2)
                         .lineLimit(1)
@@ -92,25 +103,22 @@ extension viZoneStatusWidget {
     
     //MARK: Expanded Views
     // Left views
-    @ViewBuilder func dynamicIslandExpandedLeadingView(state: WidgetState) -> some View {
-        StatusCodeView(contextState: state)
+    @ViewBuilder func dynamicIslandExpandedLeadingView(model: WidgetStateModel) -> some View {
+        StatusCodeView(contextState: model)
     }
     
     // Right Views
-    @ViewBuilder func dynamicIslandExpandedTrailingView(state: WidgetState) -> some View {
-        switch state {
-        case .error:
-            StateMessageView(contextState: state)
-        case .warning:
-            StateMessageView(contextState: state)
-        case .ok:
-            StateMessageView(contextState: state)
+    @ViewBuilder func dynamicIslandExpandedTrailingView(model: WidgetStateModel) -> some View {
+        switch model.state {
+        case .error, .warning, .ok:
+            StateMessageView(contextState: model)
+
         case .waitForResponse:
             CustomProgressView(progress: self.$progressValue)
         }
     }
     // Bottom Views
-    func dynamicIslandExpandedBottomView(state: WidgetState) -> some View {
+    func dynamicIslandExpandedBottomView(model: WidgetStateModel) -> some View {
             Text(
                 Date().addingTimeInterval(0),
                 style: .relative
@@ -122,13 +130,13 @@ extension viZoneStatusWidget {
     }
     
     //MARK: Compact Views
-    func compactLeadingView(state: WidgetState) -> some View {
-        CompactLeadingView(contextState: state)
+    func compactLeadingView(model: WidgetStateModel) -> some View {
+        CompactLeadingView(contextState: model)
     }
     
-    func compactTrailingView(state: WidgetState) -> some View {
+    func compactTrailingView(model: WidgetStateModel) -> some View {
         HStack {
-            Text(state.message)
+            Text(model.message)
                 .scaledToFit()
                 .minimumScaleFactor(0.2)
                 .lineLimit(1)
@@ -137,9 +145,9 @@ extension viZoneStatusWidget {
         }
     }
     
-    func minimalView(width: CGFloat, height: CGFloat, state: WidgetState) -> some View {
+    func minimalView(width: CGFloat, height: CGFloat, model: WidgetStateModel) -> some View {
         NavigationLink(destination: EmptyView()) {
-            IconWidgetView(contextState: state, frameWidth: width, frameHeight: height)
+            IconWidgetView(contextState: model, frameWidth: width, frameHeight: height)
         }
     }
 }
@@ -152,8 +160,13 @@ extension viZoneStatusWidget {
 struct LoackScreenView_Previews: PreviewProvider {
     static let status = WidgetState.waitForResponse
     static let attributes = DynamicIslandAttributes(name: "Me")
-    static let contentState = DynamicIslandAttributes.ContentState(stateCode: status.rawValue)
-    
+    static let contentState = DynamicIslandAttributes.ContentState(
+        dynamicIslandState: status.rawValue,
+        message: "Lorem ipsum",
+        hex: "#800080",
+        time: 60
+    )
+
     static var previews: some View {
         Group {
             attributes

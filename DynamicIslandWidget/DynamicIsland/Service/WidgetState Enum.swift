@@ -7,35 +7,35 @@
 
 import SwiftUI
 
-enum WidgetState: String {
-    
-    case ok
-    case warning
-    case error
-    case waitForResponse
-
-    var message: String {
-        switch self {
-        case .ok:
-            return "Apload Completed"
-        case .warning:
-            return "Warning smth wrong"
-        case .error:
-            return "Error pls reload app"
-        case .waitForResponse:
-            return "Wait for response"
-        }
-    }
-
-    var messageColor: Color {
-        switch self {
-        case .ok: return .green // timer ? .green : .white
-        case .warning: return .yellow // timer ? .yellow : .white
-        case .error: return .red // timer ? .red : .white
-        case .waitForResponse: return .white
-        }
-    }
-}
+//enum WidgetState: String {
+//    
+//    case ok
+//    case warning
+//    case error
+//    case waitForResponse
+//
+//    var message: String {
+//        switch self {
+//        case .ok:
+//            return "Apload Completed"
+//        case .warning:
+//            return "Warning smth wrong"
+//        case .error:
+//            return "Error pls reload app"
+//        case .waitForResponse:
+//            return "Wait for response"
+//        }
+//    }
+//
+//    var messageColor: Color {
+//        switch self {
+//        case .ok: return .green // timer ? .green : .white
+//        case .warning: return .yellow // timer ? .yellow : .white
+//        case .error: return .red // timer ? .red : .white
+//        case .waitForResponse: return .white
+//        }
+//    }
+//}
 
 //func createStateFrom(_ state: WidgetState, message: String, time: Int?) -> WidgetConfiguration {
 //    let color: Color

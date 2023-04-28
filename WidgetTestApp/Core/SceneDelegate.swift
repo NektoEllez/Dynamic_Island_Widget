@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let widgetService = WidgetService()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
@@ -17,10 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
 
+        widgetService.output = self
+
         let vc = MainViewController()
         let presenter = MainPresenter(
             view: vc,
-            widgetService: WidgetService.shared
+            widgetService: widgetService
         )
         vc.presenter = presenter
 
@@ -28,12 +31,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.window?.rootViewController = navController
 
-        WidgetService.shared.resetActivities()
+        widgetService.resetActivities()
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        WidgetService.shared.resetActivities()
-//        WidgetService.shared.delegate = self
+        widgetService.resetActivities()
+
+        if let url = URLContexts.first?.url, url.startAccessingSecurityScopedResource() {
+            defer  {
+                url.stopAccessingSecurityScopedResource()
+            }
+
+            widgetService.handleDeepLink(url.absoluteString)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -54,7 +64,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        WidgetService.shared.resetActivities()
+        widgetService.resetActivities()
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
     }
@@ -63,6 +73,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-        WidgetService.shared.changeState(true)
+        widgetService.setIsDynamicIslandEnabled(true)
+    }
+}
+
+extension SceneDelegate: WidgetServiceOutput {
+    func timerExpired() {
+        debugPrint("TIMER EXPIRED BITCH")
     }
 }

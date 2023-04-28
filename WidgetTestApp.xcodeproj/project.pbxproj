@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8404DF6429FC242B00074145 /* WidgetTestCommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404DF6329FC242B00074145 /* WidgetTestCommonModels.swift */; };
+		8404DF6829FC25BB00074145 /* libWidgetTestCommonModels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */; };
+		8404DF6B29FC25E900074145 /* libWidgetTestCommonModels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */; };
+		8404DF6F29FC2C3200074145 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404DF6E29FC2C3200074145 /* Color+Extension.swift */; };
 		8499C10C29F59802002CFD78 /* WidgetState Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499C10B29F59802002CFD78 /* WidgetState Enum.swift */; };
 		84C7BDD629F50A0B00359D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BDD529F50A0B00359D25 /* AppDelegate.swift */; };
 		84C7BDD829F50A0B00359D25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BDD729F50A0B00359D25 /* SceneDelegate.swift */; };
@@ -22,7 +26,7 @@
 		84C7BE0129F55D8C00359D25 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C7BE0029F55D8C00359D25 /* WidgetKit.framework */; };
 		84C7BE0329F55D8C00359D25 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C7BE0229F55D8C00359D25 /* SwiftUI.framework */; };
 		84C7BE0D29F55D8D00359D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C7BE0C29F55D8D00359D25 /* Assets.xcassets */; };
-		84C7BE1329F55D8D00359D25 /* WidgetTestWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84C7BDFE29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		84C7BE1329F55D8D00359D25 /* DynamicIslandWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84C7BDFE29F55D8C00359D25 /* DynamicIslandWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84C7BE2629F5609B00359D25 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BE1929F55DF800359D25 /* Attributes.swift */; };
 		84C7BE2729F5609B00359D25 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BE1B29F55E0100359D25 /* LiveActivityManager.swift */; };
 		84C7BE2829F5609B00359D25 /* WidgetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BE1D29F55E1000359D25 /* WidgetTest.swift */; };
@@ -39,6 +43,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8404DF6929FC25BB00074145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C7BDCA29F50A0A00359D25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8404DF6029FC242B00074145;
+			remoteInfo = WidgetTestCommonModels;
+		};
+		8404DF6C29FC25E900074145 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C7BDCA29F50A0A00359D25 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8404DF6029FC242B00074145;
+			remoteInfo = WidgetTestCommonModels;
+		};
 		84C7BE1129F55D8D00359D25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84C7BDCA29F50A0A00359D25 /* Project object */;
@@ -49,13 +67,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8404DF5F29FC242B00074145 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84C7BE1729F55D8D00359D25 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				84C7BE1329F55D8D00359D25 /* WidgetTestWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+				84C7BE1329F55D8D00359D25 /* DynamicIslandWidget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,6 +90,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWidgetTestCommonModels.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8404DF6329FC242B00074145 /* WidgetTestCommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTestCommonModels.swift; sourceTree = "<group>"; };
+		8404DF6E29FC2C3200074145 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		8499C10B29F59802002CFD78 /* WidgetState Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetState Enum.swift"; sourceTree = "<group>"; };
 		84C7BDD229F50A0B00359D25 /* WidgetTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WidgetTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C7BDD529F50A0B00359D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,7 +106,7 @@
 		84C7BDEE29F5452500359D25 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
 		84C7BDF329F5466700359D25 /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		84C7BDF829F54E7C00359D25 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
-		84C7BDFE29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetTestWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C7BDFE29F55D8C00359D25 /* DynamicIslandWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DynamicIslandWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C7BE0029F55D8C00359D25 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		84C7BE0229F55D8C00359D25 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		84C7BE0C29F55D8D00359D25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,10 +123,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8404DF5E29FC242B00074145 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84C7BDCF29F50A0A00359D25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8404DF6829FC25BB00074145 /* libWidgetTestCommonModels.a in Frameworks */,
 				84C7BDF729F54DA300359D25 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8404DF6B29FC25E900074145 /* libWidgetTestCommonModels.a in Frameworks */,
 				84C7BE0329F55D8C00359D25 /* SwiftUI.framework in Frameworks */,
 				84C7BE0129F55D8C00359D25 /* WidgetKit.framework in Frameworks */,
 			);
@@ -113,11 +152,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8404DF6229FC242B00074145 /* WidgetTestCommonModels */ = {
+			isa = PBXGroup;
+			children = (
+				8404DF6329FC242B00074145 /* WidgetTestCommonModels.swift */,
+			);
+			path = WidgetTestCommonModels;
+			sourceTree = "<group>";
+		};
 		84C7BDC929F50A0A00359D25 = {
 			isa = PBXGroup;
 			children = (
 				84C7BDD429F50A0B00359D25 /* WidgetTestApp */,
 				84C7BE0429F55D8C00359D25 /* DynamicIslandWidget */,
+				8404DF6229FC242B00074145 /* WidgetTestCommonModels */,
 				84C7BDFF29F55D8C00359D25 /* Frameworks */,
 				84C7BDD329F50A0B00359D25 /* Products */,
 			);
@@ -127,7 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				84C7BDD229F50A0B00359D25 /* WidgetTestApp.app */,
-				84C7BDFE29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension.appex */,
+				84C7BDFE29F55D8C00359D25 /* DynamicIslandWidget.appex */,
+				8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				8499C10B29F59802002CFD78 /* WidgetState Enum.swift */,
+				8404DF6E29FC2C3200074145 /* Color+Extension.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -221,6 +271,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8404DF6029FC242B00074145 /* WidgetTestCommonModels */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8404DF6529FC242B00074145 /* Build configuration list for PBXNativeTarget "WidgetTestCommonModels" */;
+			buildPhases = (
+				8404DF5D29FC242B00074145 /* Sources */,
+				8404DF5E29FC242B00074145 /* Frameworks */,
+				8404DF5F29FC242B00074145 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetTestCommonModels;
+			productName = WidgetTestCommonModels;
+			productReference = 8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		84C7BDD129F50A0A00359D25 /* WidgetTestApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84C7BDE629F50A0B00359D25 /* Build configuration list for PBXNativeTarget "WidgetTestApp" */;
@@ -234,6 +301,7 @@
 			);
 			dependencies = (
 				84C7BE1229F55D8D00359D25 /* PBXTargetDependency */,
+				8404DF6A29FC25BB00074145 /* PBXTargetDependency */,
 			);
 			name = WidgetTestApp;
 			packageProductDependencies = (
@@ -243,9 +311,9 @@
 			productReference = 84C7BDD229F50A0B00359D25 /* WidgetTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84C7BDFD29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension */ = {
+		84C7BDFD29F55D8C00359D25 /* DynamicIslandWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84C7BE1429F55D8D00359D25 /* Build configuration list for PBXNativeTarget "WidgetTestWidgetExtensionExtension" */;
+			buildConfigurationList = 84C7BE1429F55D8D00359D25 /* Build configuration list for PBXNativeTarget "DynamicIslandWidget" */;
 			buildPhases = (
 				84C7BDFA29F55D8C00359D25 /* Sources */,
 				84C7BDFB29F55D8C00359D25 /* Frameworks */,
@@ -254,10 +322,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				8404DF6D29FC25E900074145 /* PBXTargetDependency */,
 			);
-			name = WidgetTestWidgetExtensionExtension;
+			name = DynamicIslandWidget;
 			productName = WidgetTestWidgetExtensionExtension;
-			productReference = 84C7BDFE29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension.appex */;
+			productReference = 84C7BDFE29F55D8C00359D25 /* DynamicIslandWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -270,6 +339,9 @@
 				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
+					8404DF6029FC242B00074145 = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					84C7BDD129F50A0A00359D25 = {
 						CreatedOnToolsVersion = 14.1;
 					};
@@ -295,7 +367,8 @@
 			projectRoot = "";
 			targets = (
 				84C7BDD129F50A0A00359D25 /* WidgetTestApp */,
-				84C7BDFD29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension */,
+				84C7BDFD29F55D8C00359D25 /* DynamicIslandWidget */,
+				8404DF6029FC242B00074145 /* WidgetTestCommonModels */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +394,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8404DF5D29FC242B00074145 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8404DF6429FC242B00074145 /* WidgetTestCommonModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84C7BDCE29F50A0A00359D25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +434,7 @@
 				E562C41629F938BB00A2CF88 /* CustomProgressView.swift in Sources */,
 				E562C41A29F95A8000A2CF88 /* StatusCodeView.swift in Sources */,
 				E562C41D29F95E9200A2CF88 /* StateMessageView.swift in Sources */,
+				8404DF6F29FC2C3200074145 /* Color+Extension.swift in Sources */,
 				E562C42329F96CBD00A2CF88 /* CompactLeadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,9 +442,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8404DF6A29FC25BB00074145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8404DF6029FC242B00074145 /* WidgetTestCommonModels */;
+			targetProxy = 8404DF6929FC25BB00074145 /* PBXContainerItemProxy */;
+		};
+		8404DF6D29FC25E900074145 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8404DF6029FC242B00074145 /* WidgetTestCommonModels */;
+			targetProxy = 8404DF6C29FC25E900074145 /* PBXContainerItemProxy */;
+		};
 		84C7BE1229F55D8D00359D25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 84C7BDFD29F55D8C00359D25 /* WidgetTestWidgetExtensionExtension */;
+			target = 84C7BDFD29F55D8C00359D25 /* DynamicIslandWidget */;
 			targetProxy = 84C7BE1129F55D8D00359D25 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -379,6 +471,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8404DF6629FC242B00074145 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 245L36N25P;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8404DF6729FC242B00074145 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 245L36N25P;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		84C7BDE429F50A0B00359D25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -569,7 +687,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.drogonov.WidgetTestApp.WidgetTestWidgetExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drogonov.WidgetTestApp.DynamicIslandWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -596,7 +714,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.drogonov.WidgetTestApp.WidgetTestWidgetExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.drogonov.WidgetTestApp.DynamicIslandWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -608,6 +726,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8404DF6529FC242B00074145 /* Build configuration list for PBXNativeTarget "WidgetTestCommonModels" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8404DF6629FC242B00074145 /* Debug */,
+				8404DF6729FC242B00074145 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84C7BDCD29F50A0A00359D25 /* Build configuration list for PBXProject "WidgetTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -626,7 +753,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84C7BE1429F55D8D00359D25 /* Build configuration list for PBXNativeTarget "WidgetTestWidgetExtensionExtension" */ = {
+		84C7BE1429F55D8D00359D25 /* Build configuration list for PBXNativeTarget "DynamicIslandWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84C7BE1529F55D8D00359D25 /* Debug */,

@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "84C7BDFD29F55D8C00359D25"
-               BuildableName = "WidgetTestWidgetExtensionExtension.appex"
-               BlueprintName = "WidgetTestWidgetExtensionExtension"
+               BuildableName = "DynamicIslandWidget.appex"
+               BlueprintName = "DynamicIslandWidget"
                ReferencedContainer = "container:WidgetTestApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -63,8 +63,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "84C7BDFD29F55D8C00359D25"
-            BuildableName = "WidgetTestWidgetExtensionExtension.appex"
-            BlueprintName = "WidgetTestWidgetExtensionExtension"
+            BuildableName = "DynamicIslandWidget.appex"
+            BlueprintName = "DynamicIslandWidget"
             ReferencedContainer = "container:WidgetTestApp.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>
