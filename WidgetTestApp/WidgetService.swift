@@ -38,6 +38,16 @@ class WidgetService {
 
 extension WidgetService: WidgetServiceInput {
     func updateChoosedState(_ model: WidgetStateModel) {
+        if let time = model.time {
+            let timer = Timer.scheduledTimer(
+                timeInterval: Double(time),
+                target: self,
+                selector: #selector(delayedAction),
+                userInfo: nil,
+                repeats: false
+            )
+        }
+
         WidgetServiceStorage.shared.updateChoosedState(model)
     }
 
@@ -53,6 +63,16 @@ extension WidgetService: WidgetServiceInput {
         if url != nil {
             output?.timerExpired()
         }
+    }
+}
+
+// MARK: - Private Methods
+
+fileprivate extension WidgetService {
+
+    @objc
+    func delayedAction() {
+        output?.timerExpired()
     }
 }
 
@@ -99,4 +119,3 @@ fileprivate class WidgetServiceStorage {
         dynamicIslandManager.stopActivity()
     }
 }
-

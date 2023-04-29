@@ -22,9 +22,7 @@ struct WidgetTest: WidgetBundle {
 struct viZoneStatusWidget: Widget {
 
     @State var progressValue: CGFloat = 0.25
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: DynamicIslandAttributes.self) { context in
             let model = WidgetStateModel(
@@ -133,7 +131,7 @@ extension viZoneStatusWidget {
     func compactLeadingView(model: WidgetStateModel) -> some View {
         CompactLeadingView(contextState: model)
     }
-    
+
     func compactTrailingView(model: WidgetStateModel) -> some View {
         HStack {
             Text(model.message)
@@ -156,32 +154,32 @@ extension viZoneStatusWidget {
 
 #if DEBUG
 
-@available(iOSApplicationExtension 16.2, *)
-struct LoackScreenView_Previews: PreviewProvider {
-    static let status = WidgetState.waitForResponse
-    static let attributes = DynamicIslandAttributes(name: "Me")
-    static let contentState = DynamicIslandAttributes.ContentState(
-        dynamicIslandState: status.rawValue,
-        message: "Lorem ipsum",
-        hex: "#800080",
-        time: 60
-    )
-
-    static var previews: some View {
-        Group {
-            attributes
-                .previewContext(contentState, viewKind: .dynamicIsland(.compact))
-                .previewDisplayName("Island Compact")
-            attributes
-                .previewContext(contentState, viewKind: .dynamicIsland(.expanded))
-                .previewDisplayName("Island Expanded")
-            attributes
-                .previewContext(contentState, viewKind: .dynamicIsland(.minimal))
-                .previewDisplayName("Minimal")
-            attributes
-                .previewContext(contentState, viewKind: .content)
-                .previewDisplayName("Notification")
-        }
-    }
-}
+//@available(iOSApplicationExtension 16.2, *)
+//struct LoackScreenView_Previews: PreviewProvider {
+//    static let status = WidgetState.waitForResponse
+//    static let attributes = DynamicIslandAttributes(name: "Me")
+//    static let contentState = DynamicIslandAttributes.ContentState(
+//        dynamicIslandState: status.rawValue,
+//        message: "Lorem ipsum",
+//        hex: "#800080",
+//        time: 60
+//    )
+//
+//    static var previews: some View {
+//        Group {
+//            attributes
+//                .previewContext(contentState, viewKind: .dynamicIsland(.compact))
+//                .previewDisplayName("Island Compact")
+//            attributes
+//                .previewContext(contentState, viewKind: .dynamicIsland(.expanded))
+//                .previewDisplayName("Island Expanded")
+//            attributes
+//                .previewContext(contentState, viewKind: .dynamicIsland(.minimal))
+//                .previewDisplayName("Minimal")
+//            attributes
+//                .previewContext(contentState, viewKind: .content)
+//                .previewDisplayName("Notification")
+//        }
+//    }
+//}
 #endif

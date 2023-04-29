@@ -10,7 +10,7 @@ import WidgetTestCommonModels
 
 struct CompactLeadingView: View {
     @State var contextState: WidgetStateModel
-    
+
     var body: some View {
         ZStack {
             HStack(alignment: .center) {
@@ -18,7 +18,7 @@ struct CompactLeadingView: View {
                     .resizable()
                     .scaledToFit()
                     .colorMultiply(Color(hex: contextState.hex))
-                
+
                 Text(
                     Date().addingTimeInterval(0),
                     style: .relative

@@ -11,7 +11,6 @@
 		8404DF6829FC25BB00074145 /* libWidgetTestCommonModels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */; };
 		8404DF6B29FC25E900074145 /* libWidgetTestCommonModels.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */; };
 		8404DF6F29FC2C3200074145 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8404DF6E29FC2C3200074145 /* Color+Extension.swift */; };
-		8499C10C29F59802002CFD78 /* WidgetState Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499C10B29F59802002CFD78 /* WidgetState Enum.swift */; };
 		84C7BDD629F50A0B00359D25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BDD529F50A0B00359D25 /* AppDelegate.swift */; };
 		84C7BDD829F50A0B00359D25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BDD729F50A0B00359D25 /* SceneDelegate.swift */; };
 		84C7BDDA29F50A0B00359D25 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7BDD929F50A0B00359D25 /* MainViewController.swift */; };
@@ -39,7 +38,6 @@
 		E562C42029F966B500A2CF88 /* ViZoneIconWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C41E29F965E100A2CF88 /* ViZoneIconWidgetView.swift */; };
 		E562C42329F96CBD00A2CF88 /* CompactLeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C42129F96C5B00A2CF88 /* CompactLeadingView.swift */; };
 		E562C42529F9931600A2CF88 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C42429F9931600A2CF88 /* Clock.swift */; };
-		E5E9D39129F82636007CD004 /* WidgetState Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499C10B29F59802002CFD78 /* WidgetState Enum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +91,6 @@
 		8404DF6129FC242B00074145 /* libWidgetTestCommonModels.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWidgetTestCommonModels.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8404DF6329FC242B00074145 /* WidgetTestCommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetTestCommonModels.swift; sourceTree = "<group>"; };
 		8404DF6E29FC2C3200074145 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		8499C10B29F59802002CFD78 /* WidgetState Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WidgetState Enum.swift"; sourceTree = "<group>"; };
 		84C7BDD229F50A0B00359D25 /* WidgetTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WidgetTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C7BDD529F50A0B00359D25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84C7BDD729F50A0B00359D25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -262,7 +259,6 @@
 		E562C41729F9528D00A2CF88 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8499C10B29F59802002CFD78 /* WidgetState Enum.swift */,
 				8404DF6E29FC2C3200074145 /* Color+Extension.swift */,
 			);
 			path = Service;
@@ -406,7 +402,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5E9D39129F82636007CD004 /* WidgetState Enum.swift in Sources */,
 				E562C41529F9388800A2CF88 /* CustomProgressView.swift in Sources */,
 				84C7BE2D29F564D900359D25 /* Attributes.swift in Sources */,
 				84C7BE2C29F564CF00359D25 /* LiveActivityManager.swift in Sources */,
@@ -430,7 +425,6 @@
 				84C7BE2729F5609B00359D25 /* LiveActivityManager.swift in Sources */,
 				84C7BE2829F5609B00359D25 /* WidgetTest.swift in Sources */,
 				E562C42529F9931600A2CF88 /* Clock.swift in Sources */,
-				8499C10C29F59802002CFD78 /* WidgetState Enum.swift in Sources */,
 				E562C41629F938BB00A2CF88 /* CustomProgressView.swift in Sources */,
 				E562C41A29F95A8000A2CF88 /* StatusCodeView.swift in Sources */,
 				E562C41D29F95E9200A2CF88 /* StateMessageView.swift in Sources */,

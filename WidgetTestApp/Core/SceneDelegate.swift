@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetTestCommonModels
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -73,12 +74,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        widgetService.updateChoosedState(WidgetStateModel(
+            state: .waitForResponse,
+            message: "Lorem Ipsum",
+            hex: "#00FFFF",
+            time: 10
+        ))
         widgetService.setIsDynamicIslandEnabled(true)
     }
 }
 
 extension SceneDelegate: WidgetServiceOutput {
     func timerExpired() {
-        debugPrint("TIMER EXPIRED BITCH")
+        widgetService.updateChoosedState(WidgetStateModel(
+            state: .waitForResponse,
+            message: "IpsumLorem ",
+            hex: "#00FF00"
+        ))
     }
 }
