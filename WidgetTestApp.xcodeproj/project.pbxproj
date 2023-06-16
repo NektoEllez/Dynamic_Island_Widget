@@ -38,6 +38,7 @@
 		E562C42029F966B500A2CF88 /* ViZoneIconWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C41E29F965E100A2CF88 /* ViZoneIconWidgetView.swift */; };
 		E562C42329F96CBD00A2CF88 /* CompactLeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C42129F96C5B00A2CF88 /* CompactLeadingView.swift */; };
 		E562C42529F9931600A2CF88 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E562C42429F9931600A2CF88 /* Clock.swift */; };
+		E5D032852A15010C00101E82 /* LockScreenWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D032842A15010C00101E82 /* LockScreenWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		E562C41E29F965E100A2CF88 /* ViZoneIconWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViZoneIconWidgetView.swift; sourceTree = "<group>"; };
 		E562C42129F96C5B00A2CF88 /* CompactLeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactLeadingView.swift; sourceTree = "<group>"; };
 		E562C42429F9931600A2CF88 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		E5D032842A15010C00101E82 /* LockScreenWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenWidgetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				E562C41E29F965E100A2CF88 /* ViZoneIconWidgetView.swift */,
 				E562C42129F96C5B00A2CF88 /* CompactLeadingView.swift */,
 				E562C42429F9931600A2CF88 /* Clock.swift */,
+				E5D032842A15010C00101E82 /* LockScreenWidgetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D032852A15010C00101E82 /* LockScreenWidgetView.swift in Sources */,
 				E562C42029F966B500A2CF88 /* ViZoneIconWidgetView.swift in Sources */,
 				84C7BE2629F5609B00359D25 /* Attributes.swift in Sources */,
 				84C7BE2729F5609B00359D25 /* LiveActivityManager.swift in Sources */,
